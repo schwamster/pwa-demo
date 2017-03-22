@@ -1,0 +1,18 @@
+CACHE MANIFEST
+# 2017-03-22:v1
+
+CACHE:
+
+dist/bundle.js
+node_modules/material-design-lite/material.min.css
+node_modules/material-design-lite/material.min.js
+./
+index.html
+
+# Resources that require the user to be online.
+NETWORK:
+*
+
+FALLBACK:
+# Offline site here
+# / /offline-site.html
