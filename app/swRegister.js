@@ -26,9 +26,34 @@ define([], function () {
                     });
                 }
 
+                swRegistration.addEventListener('updatefound', function(e){
+                    swRegistration.installing.addEventListener('statechange', function(e){
+                        console.log('New service worker state: ', e.target.state);
+                    });
+                    console.log('New servicew worker found', swRegistration)
+                });
+
+                setInterval(function(){
+                    swRegistration.update();
+                }, 5000);
+
             }).catch(function (error) {
                 console.log('Error occured', error);
             })
+
+            navigator.serviceWorker.addEventListener('controllerchange', function(e){
+                console.log('Controller Changed');
+            });
+
+            navigator.serviceWorker.addEventListener('message', function(event){
+                var clientId = event.data.clientId;
+                var message = event.data.message;
+                console.log('From Client: ', clientId, message);
+            });
+
+            if(navigator.serviceWorker.controller != null){
+                navigator.serviceWorker.controller.postMessage('asdfasdf');
+            }
     }
 
 });
