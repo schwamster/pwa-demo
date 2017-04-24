@@ -100,6 +100,7 @@ function getCacheName(request){
 
 self.addEventListener('message', function(event){
     if(event.source.id){
-        event.source.postMessage({clientId:event.source.id, message: `hello from sw. Triggered by msg from client: ${event.data}`});
+        var msg = `hello from sw. Triggered by msg from client: ${event.data}`;
+        event.source.postMessage({clientId:event.source.id, message: msg});
     }
 })
