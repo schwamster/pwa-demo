@@ -2,7 +2,7 @@ define([], function () {
 
     if ('serviceWorker' in navigator) {
         navigator.serviceWorker
-            .register('/dist/service-worker.js')
+            .register('dist/service-worker.js')
             .then(function (swRegistration) {
 
                 var serviceWorker;
